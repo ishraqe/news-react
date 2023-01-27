@@ -1,5 +1,4 @@
-import "@/styles/globals.scss";
-import type { AppProps } from "next/app";
+import "../styles/globals.scss";
 import { Roboto } from "@next/font/google";
 import Layout from "../layouts";
 
@@ -8,7 +7,7 @@ const roboto = Roboto({
   weight: ["100", "300", "400", "700"]
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
   return (
     <main className={roboto.className}>
       <Layout>
