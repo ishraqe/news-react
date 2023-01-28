@@ -1,6 +1,5 @@
 import Container from "@mui/material/Container";
 
-import Footer from "./footer";
 import Header from "./header";
 
 const index = ({ children }) => {
@@ -15,8 +14,6 @@ const index = ({ children }) => {
       >
         <Container className="main-container">{children}</Container>
       </main>
-
-      <Footer />
     </>
   );
 };
