@@ -9,7 +9,8 @@ const tabsStyles = {
   position: "fixed",
   top: 64,
   backgroundColor: "#fff",
-  width: "100%"
+  width: "100%",
+  zIndex: 90
 };
 
 export default function Newstabs({ tabValue, handleChangeTabs, children }) {
