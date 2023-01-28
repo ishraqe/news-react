@@ -40,8 +40,6 @@ Indeis the `src/pages` directory all the routes will be found and `components` f
 
 Few Screenshots of the application:
 
-![ScreenShot](https://raw.github.com/ishraqe/news-react
-/main/public/screenshots/homepage.png)
+![ScreenShot](https://raw.github.com/ishraqe/news-react/main/public/screenshots/homepage.png)
 
-![ScreenShot](https://raw.github.com/ishraqe/news-react
-/main/public/screenshots/details.png)
+![ScreenShot](https://raw.github.com/ishraqe/news-react/main/public/screenshots/details.png)
