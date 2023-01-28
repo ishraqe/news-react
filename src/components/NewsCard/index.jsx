@@ -8,6 +8,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import Popover from "@mui/material/Popover";
 import { useState, useContext } from "react";
 import { ReadLaterContext } from "../../Contexts/ReadLaterContext";
+import { useRouter } from "next/router";
 
 const cardActionStyles = {
   display: "flex",
@@ -33,6 +34,7 @@ const iconBtnStyle = {
 export default function NewsCard({ article, onSelectArticle, isDetails }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const { readLater, setReadLater } = useContext(ReadLaterContext);
+  const router = useRouter();
 
   const handleClick = (event) => {
     event.stopPropagation();
@@ -42,9 +44,18 @@ export default function NewsCard({ article, onSelectArticle, isDetails }) {
     setAnchorEl(null);
   };
   const handleReadLaterClick = () => {
-    setReadLater((prev) => [...prev, article]);
-    alert("Item added to read later");
-    handleClose();
+    if (router.asPath.includes("/read-later")) {
+      const filteredRes = readLater.filter(
+        (data) => data.title !== article.title
+      );
+      setReadLater(filteredRes);
+      alert("Item removed from read later");
+      handleClose();
+    } else {
+      setReadLater((prev) => [...prev, article]);
+      alert("Item added to read later");
+      handleClose();
+    }
   };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
@@ -110,7 +121,11 @@ export default function NewsCard({ article, onSelectArticle, isDetails }) {
               horizontal: "left"
             }}
           >
-            <Typography sx={{ p: 2 }}>Add to read later</Typography>
+            <Typography sx={{ p: 2 }}>
+              {router.asPath.includes("/read-later")
+                ? "Remove from read later"
+                : " Add to read later"}
+            </Typography>
           </Popover>
         </>
       )}

@@ -1,30 +1,26 @@
 import { useContext } from "react";
 import { ReadLaterContext } from "../../Contexts/ReadLaterContext";
-import { Grid } from "@mui/material";
-import NewsCard from "../../components/NewsCard";
+import { Typography } from "@mui/material";
+import ArticleGrid from "../../components/ArticleGrid";
 
 const ReadLater = () => {
   const { readLater } = useContext(ReadLaterContext);
 
-  console.log("readLater", readLater);
-
-  const onSelectArticle = () => {};
+  let content;
 
   if (readLater && readLater.length > 0) {
-    return (
-      <Grid sx={{ marginTop: "1rem", marginLeft: 0 }} container spacing={2}>
-        {readLater &&
-          readLater.length > 0 &&
-          readLater.map((article) => (
-            <Grid xs={12} sm={6} md={4} key={new Date().getMilliseconds()}>
-              <NewsCard article={readLater} onSelectArticle={onSelectArticle} />
-            </Grid>
-          ))}
-      </Grid>
+    content = <ArticleGrid articles={readLater} />;
+  } else {
+    content = (
+      <div className="not-found-read-later">
+        <Typography variant="span" color="CaptionText">
+          No item added in read later
+        </Typography>
+      </div>
     );
   }
 
-  return <div>Nothing Found</div>;
+  return <div classNam="read-later-main-content">{content}</div>;
 };
 
 export default ReadLater;
