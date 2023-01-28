@@ -49,6 +49,7 @@ export default function SearchBar({ value, onChange }) {
   return (
     <Search>
       <SearchIconWrapper>
+        x
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase

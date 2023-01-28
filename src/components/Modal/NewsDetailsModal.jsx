@@ -9,7 +9,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: "85%",
+  maxWidth: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -25,7 +26,7 @@ function NewsDeatilsModal({ article, openNewsDetailsModal, handleClose }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} lg={6}>
           <NewsCard article={article} isDetails />
         </Box>
       </Modal>

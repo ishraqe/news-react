@@ -5,6 +5,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import SearchBar from "./searchBar";
 import { useRouter } from "next/router";
+import Link from "next/link";
+
+const appBarStyle = { backgroundColor: "#fff", color: "#000" };
 
 export default function Header() {
   const [searchText, setSearchText] = useState("");
@@ -17,25 +20,36 @@ export default function Header() {
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
-    router.push(`/?query=${searchText}`, undefined, { shallow: true });
+    router.push(`/search/${searchText}`);
   };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={appBarStyle}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="span" component="div" sx={{ flexGrow: 1 }}>
+            <Link href="/">News</Link>
           </Typography>
-          <form onSubmit={onSubmitSearch}>
-            <SearchBar value={searchText} onChange={onSearchBarTextChange} />
-            <button
-              type="submit"
-              style={{
-                opacity: 0
-              }}
-            ></button>
-          </form>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Typography variant="span" component="div" sx={{ flexGrow: 1 }}>
+              <Link href="/">Read Later</Link>
+            </Typography>
+            <form onSubmit={onSubmitSearch}>
+              <SearchBar value={searchText} onChange={onSearchBarTextChange} />
+              <button
+                type="submit"
+                style={{
+                  opacity: 0
+                }}
+              ></button>
+            </form>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

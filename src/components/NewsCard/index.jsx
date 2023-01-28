@@ -10,10 +10,18 @@ const cardActionStyles = {
   alignItems: "center"
 };
 
+const cardContainerStyles = {
+  width: "96%",
+  marginBottom: "2rem",
+  marginLeft: 0
+};
+
 export default function NewsCard({ article, onSelectArticle, isDetails }) {
-  console.log(article);
   return (
-    <Card onClick={() => (isDetails ? undefined : onSelectArticle(article))}>
+    <Card
+      sx={cardContainerStyles}
+      onClick={() => (isDetails ? undefined : onSelectArticle(article))}
+    >
       <CardMedia
         component="img"
         alt="green iguana"
