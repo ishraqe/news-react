@@ -1,6 +1,8 @@
 import "../styles/globals.scss";
 import { Roboto } from "@next/font/google";
 import Layout from "../layouts";
+import { ReadLaterContext } from "../Contexts/ReadLaterContext";
+import { useState } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -8,11 +10,15 @@ const roboto = Roboto({
 });
 
 export default function App({ Component, pageProps }) {
+  const [readLater, setReadLater] = useState([]);
+
   return (
     <main className={roboto.className}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ReadLaterContext.Provider value={{ readLater, setReadLater }}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ReadLaterContext.Provider>
     </main>
   );
 }

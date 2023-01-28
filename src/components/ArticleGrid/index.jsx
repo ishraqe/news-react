@@ -19,7 +19,7 @@ const ArticleGrid = ({ articles }) => {
 
   return (
     <>
-      <Grid sx={{ marginTop: "1rem" }} container spacing={2}>
+      <Grid sx={{ marginTop: "1rem", marginLeft: 0 }} container spacing={2}>
         {articles &&
           articles.length > 0 &&
           articles.map((article) => (

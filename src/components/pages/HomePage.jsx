@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchNewsActions } from "../../helpers/newsActions";
 import { TABS } from "../../utils/config";
 import Newstabs from "../NewsTabs";
-import Loader from "../Loader";
+import Loader from "../../helpers/Loader";
 import ArticleGrid from "../ArticleGrid";
 
 const HomePage = () => {

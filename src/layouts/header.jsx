@@ -7,8 +7,6 @@ import SearchBar from "./searchBar";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const appBarStyle = { backgroundColor: "#fff", color: "#000" };
-
 export default function Header() {
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
@@ -25,31 +23,33 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={appBarStyle}>
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="span" component="div" sx={{ flexGrow: 1 }}>
             <Link href="/">News</Link>
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
+
+          <Typography
+            variant="span"
+            component="div"
+            sx={{ marginRight: "1rem" }}
           >
-            <Typography variant="span" component="div" sx={{ flexGrow: 1 }}>
-              <Link href="/">Read Later</Link>
-            </Typography>
-            <form onSubmit={onSubmitSearch}>
-              <SearchBar value={searchText} onChange={onSearchBarTextChange} />
-              <button
-                type="submit"
-                style={{
-                  opacity: 0
-                }}
-              ></button>
-            </form>
-          </Box>
+            <Link href="/read-later">Read Later</Link>
+          </Typography>
+          <form
+            style={{
+              display: "flex"
+            }}
+            onSubmit={onSubmitSearch}
+          >
+            <SearchBar value={searchText} onChange={onSearchBarTextChange} />
+            <button
+              type="submit"
+              style={{
+                opacity: 0
+              }}
+            ></button>
+          </form>
         </Toolbar>
       </AppBar>
     </Box>

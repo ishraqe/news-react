@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchNewsActions } from "../../helpers/newsActions";
-import Loader from "../Loader";
+import Loader from "../../helpers/Loader";
 import ArticleGrid from "../ArticleGrid";
 import { useRouter } from "next/router";
 

@@ -9,7 +9,8 @@ const index = ({ children }) => {
       <Header />
       <main
         style={{
-          marginTop: "8rem"
+          marginTop: "8rem",
+          minHeight: "80vh"
         }}
       >
         <Container className="main-container">{children}</Container>
